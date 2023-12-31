@@ -1,0 +1,234 @@
+sudo systemctl restart containerd
+
+sudo systemctl status containerd
+
+sudo systemctl restart kubelet
+
+sudo systemctl status kubelet
+
+docker pull prakash1102docker/software
+
+kubectl get all -A   to see all things in the cluster 
+
+ip addr show
+
+ifconfig
+
+172.19.164.58
+
+sudo swapoff -a
+
+sudo swapon -a  
+
+kubectl get nodes -o wide                     it will show all the status  role   INTERNAL-IP  EXTERNAL-IP  OS-IMAGE  CONTAINER-RUNTIME        *
+
+kubectl get pods -A -o wide                      to check the workernodes
+
+kubectl get events --watch                       if any pods restarting or creating it show in this command    
+
+kubectl get pods                               list of pods in the default namespace along with details such as their names, statuses
+
+kubectl get nodes                          it will show the status of  control-plane
+
+free -h
+
+kubectl get pods -A                     list of all pods running in all namespaces along with details such as their names, statuses  entire Kubernetes cluster
+
+watch -n5 kubectl get po -A                      updated view of the pods' status across all namespaces
+
+kubectl get start nginx-pod
+
+sudo systemctl restart kubelet
+
+kubectl get service nginx-pod
+
+kubectl taint nodes desktop-9ofrmlh node-role.kubernetes.io/control-plane:NoSchedule-               (to remove the taint)
+
+kubectl describe node desktop-9ofrmlh
+
+kubectl get nodes
+
+cd /etc/systemd/system/
+
+kubectl edit node desktop-9ofrmlh
+
+sudo nano pod.yaml
+
+kubectl apply -f pod.yaml
+
+kubectl get service nginx-pod
+
+kubectl get service nginx-pod.yaml
+
+sudo nano /etc/hosts
+
+kubectl get pods
+
+
+sudo hostnamectl set-hostname master1
+
+sudo hostnamectl status
+
+desktop-9ofrmlh
+
+sudo kubeadm reset
+
+home$ cd brrsoftwares/
+
+sudo rm -rf  /etc/cni/net.d
+
+sudo rm -rf  $HOME/.kube/config
+
+ipvsadm
+
+sudo apt install ipvsadm
+
+sudo ipvsadm --clear
+
+sudo kubeadm init --pod-network-cidr=172.19.0.0/16
+
+sudo sed -i '/ swap / s/^\(.*\)$/#\1/g' /etc/fstab
+
+history
+
+ctrl + l
+
+sudo kubeadm reset -f
+
+sudo kubeadm init --pod-network-cidr=10.244.0.0/16
+
+kubectl apply -f https://github.com/flannel-io/flannel/releases/latest/download/kube-flannel.yml
+
+kubectl get pods -A
+
+
+to reset 
+
+sudo kubeadm reset
+
+sudo rm -rf /etc/kubernetes/
+
+rm -rf $HOME/.kube/
+
+nano for save  ctrl + 0 after enter ctrl + x
+
+
+
+
+for swap off  
+ sudo sed -i '/ swap / s/^\(.*\)$/#\1/g' /etc/fstab
+ 
+ 
+ kubectl describe pod kube-flannel-ds-p29sr -n kube-flannel
+                        POD NAME                 NAME SPACE 
+						
+						kubectl describe pod/kube-apiserver-desktop-9ofrmlh -n kube-system
+						
+						kubectl describe pod/kube-controller-manager-desktop-9ofrmlh -n kube-system
+						
+						kubectl get nodes
+						kubectl describe pod/kube-controller-manager-desktop-9ofrmlh -n kube-system
+						
+						kubectl describe pod/coredns-5dd5756b68-9lqm7 -n kube-system
+						
+						kubectl delete pod coredns-5dd5756b68-d7q5n  coredns-5dd5756b68-j8xkl -n kube-system
+						
+						kubectl describe pod/kube-apiserver-desktop-9ofrmlh -n kube-system
+
+
+deployement process 
+
+sudo nano nginx.yaml
+
+kubectl apply -f nginx.yaml
+
+kubectl get pods -A
+
+result   >  default            nginx-deployment-7c79c4bf97-cg6z6          0/1     Pending   0             8s
+
+kubectl describe pod nginx-deployment-7c79c4bf97-cg6z6
+
+kubectl taint nodes desktop-9ofrmlh node-role.kubernetes.io/control-plane:NoSchedule-                                                     remove taint
+
+kubectl get pods -A                                                                                    to check running status
+
+kubectl get svc                                                                                       to check ports
+
+NAME            TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)        AGE
+
+
+watch kubectl get pods -A
+
+local ip and port no 
+http://172.19.164.58:30674/
+
+
+Execute the following command to verify the node is running:                          if node not ready to use this method
+
+kubectl get nodes
+
+The Control plane node should have a status of NotReady, similar to the following output:
+
+gcxi-doc-kube0 NotReady master 3m v1.26.3
+
+ Execute the following commands to configure kubectl to manage your cluster:
+
+grep -q "KUBECONFIG" ~/.bashrc || {
+echo 'export KUBECONFIG=/etc/kubernetes/admin.conf' >> ~/.bashrc
+. ~/.bashrc
+}
+
+. Deploy the Flannel overlay network on the Control plane node machine:
+1. Execute the following command to initiate the Flannel network:
+kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml
+
+
+kubectl get nodes -o wide
+
+
+
+kubectl get service tomcat-service -n venkat
+
+kubectl apply -f nginx-deployment.yaml -n venkat
+
+kubectl apply -f tomcat-deployment-service.yaml -n venkat
+
+
+   do delete services 
+   
+   kubectl delete service tomcat-service -n venkat
+
+
+kubectl get deployments
+
+
+ kubectl delete deployments tomcat-deployment
+ 
+ kubectl get pods -A -o wide
+
+kubectl get svc tomcat-service -n venkat
+
+
+
+kubectl apply -f tomcat-deployment.yaml -n venkat
+
+
+kubectl get deployments -n venkat
+
+kubectl delete deployment tomcat-deployment  -n venkat 
+
+
+kubectl get pod -n venkat
+
+
+
+kubectl delete service tomcat-service -n venkat
+
+
+kubectl describe pod csi-node-driver-bmj85
+
+kubectl describe pod prometheus-84db74b595-bznjv
+
+monitoring
+
+
