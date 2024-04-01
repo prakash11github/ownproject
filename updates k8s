@@ -1,4 +1,11 @@
-				Kubernetes installation process
+
+Kubernetes installation process
+
+sudo -i               to go for root
+hostnamectl set-hostname master1
+bash                               to use this command  go to master1 user
+ip -br a
+
 Step 1: Prepare Nodes
 sudo nano /etc/hosts
 
