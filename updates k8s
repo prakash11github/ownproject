@@ -97,7 +97,7 @@ sudo systemctl restart containerd
 sudo systemctl restart kubelet
 
 Initialize k8s cluster with user defined network (Network must be /16, and must NOT match underlying LAN CIDR)
-sudo kubeadm config images pull
+sudo kubeadm config images pull                    --for worker still hear to end and add token from master to workernode  then go to master  kubectl get nodes then we can see the workernode 
 sudo kubeadm init --pod-network-cidr=192.168.0.0/16
 
 Setup kubectl for user on master node
